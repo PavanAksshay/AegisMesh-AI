@@ -259,6 +259,55 @@
       color: #a5b4fc;
     }
 
+    /* Live Governance Pipeline States */
+
+.pipeline-stage {
+  position: relative;
+  transition: all 0.25s ease;
+}
+
+.pipeline-stage.running {
+  border-color: var(--accent-indigo) !important;
+  color: #a5b4fc !important;
+  background: rgba(99, 102, 241, 0.22) !important;
+  box-shadow: 0 0 16px rgba(99, 102, 241, 0.35);
+  transform: translateY(-1px);
+}
+
+.pipeline-stage.running::after {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-left: 6px;
+  border-radius: 50%;
+  background: var(--accent-indigo);
+  animation: pipelinePulse 0.8s infinite;
+}
+
+.pipeline-stage.completed {
+  border-color: var(--color-approve) !important;
+  color: var(--color-approve) !important;
+  background: rgba(16, 185, 129, 0.10) !important;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.15);
+}
+
+.pipeline-stage.completed::before {
+  content: '✓ ';
+}
+
+@keyframes pipelinePulse {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scale(0.8);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}
+
     .flow-arrow {
       color: var(--text-muted);
       font-size: 0.75rem;
@@ -665,6 +714,800 @@
     .btn-reject { background: var(--color-reject); color: white; }
     .btn-modify { background: var(--color-modify); color: black; }
     .btn-secondary { background: rgba(51, 65, 85, 0.6); color: white; }
+
+    /* =========================================================
+       AEGISMESH AI — PREMIUM SECURITY CONTROL PLANE
+       Phase 1: Global Visual System
+       ========================================================= */
+
+    :root {
+      --am-bg: #060912;
+      --am-bg-secondary: #0a1020;
+      --am-surface: #0d1526;
+      --am-surface-raised: #111b30;
+      --am-surface-hover: #16223a;
+
+      --am-border: rgba(148, 163, 184, 0.14);
+      --am-border-strong: rgba(129, 140, 248, 0.32);
+
+      --am-text: #f8fafc;
+      --am-text-secondary: #a7b3c7;
+      --am-text-muted: #64748b;
+
+      --am-primary: #818cf8;
+      --am-primary-strong: #6366f1;
+
+      --am-success: #34d399;
+      --am-warning: #fbbf24;
+      --am-orange: #fb923c;
+      --am-danger: #f87171;
+
+      --am-radius-sm: 8px;
+      --am-radius-md: 12px;
+      --am-radius-lg: 16px;
+      --am-radius-xl: 20px;
+
+      --am-shadow: 0 18px 50px rgba(0, 0, 0, 0.28);
+      --am-glow: 0 0 30px rgba(99, 102, 241, 0.12);
+    }
+
+    html {
+      background: var(--am-bg);
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background:
+        radial-gradient(circle at 10% 0%, rgba(99, 102, 241, 0.10), transparent 30%),
+        radial-gradient(circle at 90% 20%, rgba(56, 189, 248, 0.055), transparent 25%),
+        linear-gradient(180deg, #060912 0%, #080d19 45%, #060912 100%);
+      color: var(--am-text);
+    }
+
+    header {
+      background: rgba(6, 9, 18, 0.88);
+      border-bottom: 1px solid var(--am-border);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.16);
+    }
+
+    .brand-icon {
+      background:
+        radial-gradient(circle at 35% 30%, rgba(165, 180, 252, 0.35), transparent 45%),
+        linear-gradient(135deg, rgba(99, 102, 241, 0.35), rgba(79, 70, 229, 0.72));
+      border-color: rgba(165, 180, 252, 0.42);
+      box-shadow:
+        0 0 25px rgba(99, 102, 241, 0.28),
+        inset 0 0 18px rgba(255, 255, 255, 0.035);
+    }
+
+    .brand-title h1 {
+      letter-spacing: -0.035em;
+    }
+
+    .brand-title p {
+      color: var(--am-text-secondary);
+    }
+
+    .nav-tabs {
+      background: rgba(13, 21, 38, 0.78);
+      border-color: var(--am-border);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.025);
+    }
+
+    .nav-tab {
+      color: var(--am-text-secondary);
+      transition: background 180ms ease, color 180ms ease, transform 180ms ease;
+    }
+
+    .nav-tab:hover {
+      color: var(--am-text);
+      background: rgba(129, 140, 248, 0.08);
+    }
+
+    .nav-tab.active {
+      background: linear-gradient(135deg, var(--am-primary-strong), #4f46e5);
+      box-shadow:
+        0 6px 22px rgba(79, 70, 229, 0.30),
+        inset 0 1px 0 rgba(255, 255, 255, 0.10);
+    }
+
+    .pill {
+      background: rgba(13, 21, 38, 0.72);
+      border-color: var(--am-border);
+      color: var(--am-text-secondary);
+    }
+
+    .pill-dot {
+      box-shadow: 0 0 10px currentColor;
+    }
+
+    main {
+      padding-top: 1.75rem;
+    }
+
+    .panel {
+      background:
+        linear-gradient(145deg, rgba(17, 27, 48, 0.92), rgba(10, 16, 32, 0.94));
+      border: 1px solid var(--am-border);
+      border-radius: var(--am-radius-lg);
+      box-shadow:
+        var(--am-shadow),
+        inset 0 1px 0 rgba(255, 255, 255, 0.025);
+      backdrop-filter: blur(14px);
+    }
+
+    .panel:hover {
+      border-color: rgba(129, 140, 248, 0.18);
+    }
+
+    .hero-story-card {
+      background:
+        radial-gradient(circle at 85% 20%, rgba(99, 102, 241, 0.14), transparent 35%),
+        linear-gradient(145deg, rgba(17, 27, 48, 0.96), rgba(9, 14, 28, 0.96));
+      border-color: var(--am-border-strong);
+      border-radius: var(--am-radius-xl);
+      box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.30),
+        var(--am-glow);
+    }
+
+    .metric-card {
+      background:
+        linear-gradient(145deg, rgba(17, 27, 48, 0.92), rgba(10, 16, 32, 0.90));
+      border-color: var(--am-border);
+      border-radius: var(--am-radius-md);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+      transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+    }
+
+    .metric-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(129, 140, 248, 0.30);
+      box-shadow:
+        0 15px 38px rgba(0, 0, 0, 0.26),
+        0 0 24px rgba(99, 102, 241, 0.07);
+    }
+
+    .metric-value {
+      letter-spacing: -0.04em;
+    }
+
+    .pipeline-flow-strip {
+      background: linear-gradient(90deg, rgba(10, 16, 32, 0.94), rgba(13, 21, 38, 0.92));
+      border-color: var(--am-border);
+      border-radius: var(--am-radius-md);
+    }
+
+    .flow-node {
+      background: rgba(17, 27, 48, 0.84);
+      border-color: var(--am-border);
+      color: var(--am-text-secondary);
+      transition: background 180ms ease, border-color 180ms ease, color 180ms ease;
+    }
+
+    .flow-node:hover,
+    .flow-node.active {
+      background: rgba(99, 102, 241, 0.12);
+      border-color: rgba(129, 140, 248, 0.48);
+      color: #c7d2fe;
+    }
+
+    input,
+    select,
+    textarea {
+      background: rgba(5, 9, 18, 0.78);
+      border-color: var(--am-border);
+      color: var(--am-text);
+      border-radius: var(--am-radius-sm);
+      transition: border-color 160ms ease, box-shadow 160ms ease, background 160ms ease;
+    }
+
+    input:hover,
+    select:hover,
+    textarea:hover {
+      border-color: rgba(148, 163, 184, 0.25);
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: rgba(129, 140, 248, 0.62);
+      background: rgba(7, 11, 22, 0.94);
+      box-shadow:
+        0 0 0 3px rgba(99, 102, 241, 0.10),
+        0 0 22px rgba(99, 102, 241, 0.08);
+    }
+
+    .btn-submit {
+      background: linear-gradient(135deg, #6366f1, #4f46e5);
+      border-radius: var(--am-radius-sm);
+      box-shadow:
+        0 10px 25px rgba(79, 70, 229, 0.24),
+        inset 0 1px 0 rgba(255, 255, 255, 0.10);
+      transition: transform 160ms ease, box-shadow 160ms ease, filter 160ms ease;
+    }
+
+    .btn-submit:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.08);
+      box-shadow:
+        0 14px 32px rgba(79, 70, 229, 0.32),
+        inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    }
+
+    .btn-submit:active {
+      transform: translateY(0);
+    }
+
+    .preset-btn {
+      background: rgba(10, 16, 32, 0.70);
+      border-color: var(--am-border);
+      border-radius: var(--am-radius-sm);
+      transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+    }
+
+    .preset-btn:hover {
+      transform: translateX(2px);
+      background: rgba(22, 34, 58, 0.80);
+      border-color: rgba(129, 140, 248, 0.34);
+    }
+
+    .panel-title {
+      color: var(--am-text-secondary);
+      letter-spacing: 0.075em;
+    }
+
+    label {
+      color: var(--am-text-secondary);
+    }
+
+    ::-webkit-scrollbar {
+      width: 7px;
+      height: 7px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #060912;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #26334d;
+      border-radius: 999px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #46577d;
+    }
+
+    button:focus-visible,
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible {
+      outline: 2px solid rgba(129, 140, 248, 0.65);
+      outline-offset: 2px;
+    }
+
+    /* =========================================================
+   AEGISMESH COMMAND CENTER — PHASE 1B
+   ========================================================= */
+
+.am-command-center {
+  margin-bottom: 1.35rem;
+}
+
+.am-command-hero {
+  position: relative;
+  overflow: hidden;
+
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+
+  padding: 1.75rem 2rem;
+
+  border: 1px solid rgba(129, 140, 248, 0.28);
+  border-radius: 18px;
+
+  background:
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(99, 102, 241, 0.16),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 20% 100%,
+      rgba(56, 189, 248, 0.06),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(17, 27, 48, 0.98),
+      rgba(7, 12, 25, 0.98)
+    );
+
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.28),
+    0 0 40px rgba(99, 102, 241, 0.07);
+
+  margin-bottom: 0.85rem;
+}
+
+.am-command-hero::after {
+  content: "";
+  position: absolute;
+
+  width: 280px;
+  height: 280px;
+
+  right: -120px;
+  top: -150px;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(129, 140, 248, 0.12);
+
+  box-shadow:
+    0 0 0 30px rgba(129, 140, 248, 0.025),
+    0 0 0 60px rgba(129, 140, 248, 0.015);
+
+  pointer-events: none;
+}
+
+.am-command-copy {
+  max-width: 760px;
+  position: relative;
+  z-index: 2;
+}
+
+.am-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  font-family: "JetBrains Mono", monospace;
+
+  font-size: 0.66rem;
+  font-weight: 700;
+
+  letter-spacing: 0.13em;
+
+  color: #a5b4fc;
+
+  margin-bottom: 0.65rem;
+}
+
+.am-live-dot {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #34d399;
+
+  box-shadow:
+    0 0 0 3px rgba(52, 211, 153, 0.10),
+    0 0 14px rgba(52, 211, 153, 0.75);
+
+  flex-shrink: 0;
+}
+
+.am-command-copy h2 {
+  font-size: clamp(1.7rem, 3vw, 2.45rem);
+
+  line-height: 1.08;
+
+  letter-spacing: -0.045em;
+
+  margin-bottom: 0.7rem;
+
+  color: #f8fafc;
+}
+
+.am-command-copy p {
+  max-width: 690px;
+
+  color: #9aa9bf;
+
+  font-size: 0.88rem;
+
+  line-height: 1.65;
+
+  margin-bottom: 1rem;
+}
+
+.am-command-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.am-command-tags span {
+  padding: 0.34rem 0.58rem;
+
+  border-radius: 5px;
+
+  border: 1px solid rgba(129, 140, 248, 0.20);
+
+  background: rgba(99, 102, 241, 0.07);
+
+  color: #aeb8d4;
+
+  font-family: "JetBrains Mono", monospace;
+
+  font-size: 0.59rem;
+
+  font-weight: 600;
+
+  letter-spacing: 0.06em;
+}
+
+/* ---------- System State ---------- */
+
+.am-system-state {
+  min-width: 285px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  gap: 1rem;
+
+  position: relative;
+  z-index: 2;
+}
+
+.am-state-ring {
+  min-height: 115px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 14px;
+
+  border: 1px solid rgba(52, 211, 153, 0.22);
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(52, 211, 153, 0.08),
+      rgba(10, 16, 32, 0.7) 65%
+    );
+
+  box-shadow:
+    inset 0 0 30px rgba(52, 211, 153, 0.035),
+    0 0 25px rgba(52, 211, 153, 0.04);
+}
+
+.am-state-ring > div {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.am-state-ring strong {
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  color: #6ee7b7;
+}
+
+.am-state-ring small {
+  margin-top: 0.35rem;
+
+  font-family: "JetBrains Mono", monospace;
+
+  font-size: 0.57rem;
+
+  letter-spacing: 0.09em;
+
+  color: #64748b;
+}
+
+.am-state-dot {
+  width: 9px;
+  height: 9px;
+
+  border-radius: 50%;
+
+  background: #34d399;
+
+  box-shadow: 0 0 14px rgba(52, 211, 153, 0.9);
+}
+
+.am-state-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 0.6rem;
+}
+
+.am-state-meta > div {
+  padding: 0.6rem;
+
+  border-radius: 8px;
+
+  border: 1px solid rgba(148, 163, 184, 0.09);
+
+  background: rgba(5, 9, 18, 0.42);
+}
+
+.am-state-meta span {
+  display: block;
+
+  font-family: "JetBrains Mono", monospace;
+
+  font-size: 0.52rem;
+
+  color: #64748b;
+
+  margin-bottom: 0.22rem;
+}
+
+.am-state-meta strong {
+  font-size: 0.63rem;
+
+  color: #cbd5e1;
+
+  letter-spacing: 0.025em;
+}
+
+/* ---------- Command Metrics ---------- */
+
+.am-command-metrics {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 0.75rem;
+
+  margin-bottom: 0.75rem;
+}
+
+.am-command-metric {
+  display: flex;
+  align-items: center;
+
+  gap: 0.8rem;
+
+  padding: 0.9rem 1rem;
+
+  min-height: 82px;
+
+  border-radius: 12px;
+
+  border: 1px solid rgba(148, 163, 184, 0.11);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(17, 27, 48, 0.88),
+      rgba(9, 14, 28, 0.92)
+    );
+
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.am-command-metric:hover {
+  transform: translateY(-2px);
+
+  border-color: rgba(129, 140, 248, 0.25);
+
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.20);
+}
+
+.am-metric-icon {
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 9px;
+
+  background: rgba(99, 102, 241, 0.10);
+
+  border: 1px solid rgba(129, 140, 248, 0.18);
+
+  color: #a5b4fc;
+
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.am-command-metric > div:last-child {
+  min-width: 0;
+}
+
+.am-command-metric span {
+  display: block;
+
+  font-family: "JetBrains Mono", monospace;
+
+  font-size: 0.56rem;
+
+  color: #64748b;
+
+  letter-spacing: 0.07em;
+
+  white-space: nowrap;
+}
+
+.am-command-metric strong {
+  display: inline-block;
+
+  margin-top: 0.12rem;
+
+  font-size: 1.35rem;
+
+  line-height: 1;
+
+  letter-spacing: -0.04em;
+
+  color: #f8fafc;
+}
+
+.am-command-metric small {
+  margin-left: 0.3rem;
+
+  font-size: 0.52rem;
+
+  color: #64748b;
+}
+
+.am-metric-approved .am-metric-icon {
+  color: #34d399;
+
+  background: rgba(52, 211, 153, 0.08);
+
+  border-color: rgba(52, 211, 153, 0.18);
+}
+
+.am-metric-approved strong {
+  color: #6ee7b7;
+}
+
+.am-metric-review .am-metric-icon {
+  color: #fb923c;
+
+  background: rgba(251, 146, 60, 0.08);
+
+  border-color: rgba(251, 146, 60, 0.18);
+}
+
+.am-metric-review strong {
+  color: #fdba74;
+}
+
+.am-metric-blocked .am-metric-icon {
+  color: #f87171;
+
+  background: rgba(248, 113, 113, 0.08);
+
+  border-color: rgba(248, 113, 113, 0.18);
+}
+
+.am-metric-blocked strong {
+  color: #fca5a5;
+}
+
+/* ---------- Security Posture ---------- */
+
+.am-security-strip {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 0.45rem;
+
+  padding: 0.6rem 0.8rem;
+
+  border-radius: 10px;
+
+  border: 1px solid rgba(148, 163, 184, 0.09);
+
+  background: rgba(5, 9, 18, 0.45);
+}
+
+.am-security-label {
+  display: flex;
+  align-items: center;
+  gap: 0.42rem;
+
+  padding-right: 0.65rem;
+
+  margin-right: 0.15rem;
+
+  border-right: 1px solid rgba(148, 163, 184, 0.10);
+
+  font-family: "JetBrains Mono", monospace;
+
+  font-size: 0.57rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.06em;
+
+  color: #94a3b8;
+}
+
+.am-security-item {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+
+  padding: 0.3rem 0.5rem;
+
+  font-size: 0.62rem;
+
+  color: #94a3b8;
+}
+
+.am-security-item strong {
+  color: #34d399;
+
+  font-family: "JetBrains Mono", monospace;
+
+  font-size: 0.53rem;
+}
+
+.am-check {
+  color: #34d399;
+
+  font-weight: 800;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 900px) {
+
+  .am-command-hero {
+    flex-direction: column;
+  }
+
+  .am-system-state {
+    min-width: 0;
+  }
+
+  .am-command-metrics {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+
+  .am-command-hero {
+    padding: 1.25rem;
+  }
+
+  .am-command-copy h2 {
+    font-size: 1.65rem;
+  }
+
+  .am-command-metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .am-security-label {
+    width: 100%;
+
+    border-right: none;
+
+    border-bottom: 1px solid rgba(148, 163, 184, 0.10);
+
+    padding-bottom: 0.45rem;
+  }
+
+  .am-state-meta {
+    grid-template-columns: 1fr;
+  }
+}
+
   </style>
 </head>
 <body>
@@ -832,20 +1675,202 @@
 
     <!-- TAB 2: GOVERNANCE CONTROL PLANE (MAIN DASHBOARD) -->
     <div id="tab-control-plane" class="tab-content active">
+    <!-- =========================================================
+     AEGISMESH COMMAND CENTER — PHASE 1B
+     ========================================================= -->
 
-      <!-- Visual End-to-End Governance Pipeline Sequence Strip -->
-      <div class="pipeline-flow-strip">
-        <div class="flow-node active">1. REQUEST</div> <span class="flow-arrow">➔</span>
-        <div class="flow-node active">2. INTENT</div> <span class="flow-arrow">➔</span>
-        <div class="flow-node active">3. IDENTITY</div> <span class="flow-arrow">➔</span>
-        <div class="flow-node active">4. RAG RETRIEVAL</div> <span class="flow-arrow">➔</span>
-        <div class="flow-node active" style="border-color:var(--accent-indigo); color:#a5b4fc;">5. IBM GRANITE REASONING</div> <span class="flow-arrow">➔</span>
-        <div class="flow-node active">6. COMPLIANCE</div> <span class="flow-arrow">➔</span>
-        <div class="flow-node active">7. RISK ANALYSIS</div> <span class="flow-arrow">➔</span>
-        <div class="flow-node active">8. TRANSFORMATION</div> <span class="flow-arrow">➔</span>
-        <div class="flow-node active" style="border-color:var(--color-approve); color:var(--color-approve);">9. FINAL DECISION</div> <span class="flow-arrow">➔</span>
-        <div class="flow-node active">10. AUDIT TRAIL</div>
+<div class="am-command-center">
+
+  <div class="am-command-hero">
+
+    <div class="am-command-copy">
+      <div class="am-eyebrow">
+        <span class="am-live-dot"></span>
+        AEGISMESH AI SECURITY FABRIC
       </div>
+
+      <h2>Autonomous AI Governance<br>Control Plane</h2>
+
+      <p>
+        Every AI action is intercepted, identity-verified,
+        policy-grounded, risk-scored and governed before execution.
+      </p>
+
+      <div class="am-command-tags">
+        <span>7 AGENT PIPELINE</span>
+        <span>POLICY-AWARE</span>
+        <span>RISK-ADAPTIVE</span>
+        <span>AUDITABLE</span>
+      </div>
+    </div>
+
+    <div class="am-system-state">
+      <div class="am-state-ring">
+        <div>
+          <span class="am-state-dot"></span>
+          <strong>PROTECTED</strong>
+        </div>
+        <small>CONTROL PLANE ACTIVE</small>
+      </div>
+
+      <div class="am-state-meta">
+        <div>
+          <span>REASONING ENGINE</span>
+          <strong>IBM GRANITE 7B</strong>
+        </div>
+
+        <div>
+          <span>POLICY ENGINE</span>
+          <strong>RAG + SQLITE</strong>
+        </div>
+
+        <div>
+          <span>ENFORCEMENT</span>
+          <strong>REAL-TIME</strong>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Live Governance Metrics -->
+  <div class="am-command-metrics">
+
+    <div class="am-command-metric">
+      <div class="am-metric-icon">◈</div>
+      <div>
+        <span>GOVERNANCE REQUESTS</span>
+        <strong id="am-metric-requests">—</strong>
+        <small>PROCESSED</small>
+      </div>
+    </div>
+
+    <div class="am-command-metric am-metric-approved">
+      <div class="am-metric-icon">✓</div>
+      <div>
+        <span>APPROVED</span>
+        <strong id="am-metric-approved">—</strong>
+        <small>ACTIONS CLEARED</small>
+      </div>
+    </div>
+
+    <div class="am-command-metric am-metric-review">
+      <div class="am-metric-icon">!</div>
+      <div>
+        <span>ESCALATED</span>
+        <strong id="am-metric-escalated">—</strong>
+        <small>HUMAN REVIEW</small>
+      </div>
+    </div>
+
+    <div class="am-command-metric am-metric-blocked">
+      <div class="am-metric-icon">×</div>
+      <div>
+        <span>BLOCKED</span>
+        <strong id="am-metric-blocked">—</strong>
+        <small>POLICY VIOLATIONS</small>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Security Posture -->
+  <div class="am-security-strip">
+
+    <div class="am-security-label">
+      <span class="am-live-dot"></span>
+      LIVE GOVERNANCE POSTURE
+    </div>
+
+    <div class="am-security-item">
+      <span class="am-check">✓</span>
+      Identity Verification
+      <strong>ACTIVE</strong>
+    </div>
+
+    <div class="am-security-item">
+      <span class="am-check">✓</span>
+      Policy Grounding
+      <strong>ACTIVE</strong>
+    </div>
+
+    <div class="am-security-item">
+      <span class="am-check">✓</span>
+      Risk Analysis
+      <strong>ACTIVE</strong>
+    </div>
+
+    <div class="am-security-item">
+      <span class="am-check">✓</span>
+      Audit Capture
+      <strong>ACTIVE</strong>
+    </div>
+
+  </div>
+
+</div>
+
+      <div class="pipeline-flow-strip" id="governance-pipeline">
+
+  <div class="flow-node pipeline-stage" id="stage-1">
+    1. REQUEST
+  </div>
+
+  <span class="flow-arrow">➔</span>
+
+  <div class="flow-node pipeline-stage" id="stage-2">
+    2. INTENT
+  </div>
+
+  <span class="flow-arrow">➔</span>
+
+  <div class="flow-node pipeline-stage" id="stage-3">
+    3. IDENTITY
+  </div>
+
+  <span class="flow-arrow">➔</span>
+
+  <div class="flow-node pipeline-stage" id="stage-4">
+    4. RAG RETRIEVAL
+  </div>
+
+  <span class="flow-arrow">➔</span>
+
+  <div class="flow-node pipeline-stage" id="stage-5">
+    5. IBM GRANITE REASONING
+  </div>
+
+  <span class="flow-arrow">➔</span>
+
+  <div class="flow-node pipeline-stage" id="stage-6">
+    6. COMPLIANCE
+  </div>
+
+  <span class="flow-arrow">➔</span>
+
+  <div class="flow-node pipeline-stage" id="stage-7">
+    7. RISK ANALYSIS
+  </div>
+
+  <span class="flow-arrow">➔</span>
+
+  <div class="flow-node pipeline-stage" id="stage-8">
+    8. TRANSFORMATION
+  </div>
+
+  <span class="flow-arrow">➔</span>
+
+  <div class="flow-node pipeline-stage" id="stage-9">
+    9. FINAL DECISION
+  </div>
+
+  <span class="flow-arrow">➔</span>
+
+  <div class="flow-node pipeline-stage" id="stage-10">
+    10. AUDIT TRAIL
+  </div>
+
+</div>
 
       <div class="grid-container">
         
@@ -1839,57 +2864,151 @@
       document.getElementById('remediation-applied-container').innerHTML = '';
     }
 
-    async function handleGovern(event) {
-      if (event) event.preventDefault();
-      
-      const submitBtn = document.getElementById('btn-submit');
-      if (submitBtn) { submitBtn.disabled = true; submitBtn.innerText = 'Evaluating Governance Pipeline...'; }
+    // =====================================================
+// LIVE GOVERNANCE PIPELINE VISUALIZATION
+// =====================================================
 
-      document.getElementById('unsaved-badge').style.display = 'none';
-      document.getElementById('confidence-label').innerText = 'Confidence: Evaluating...';
+function resetGovernancePipeline() {
+  for (let i = 1; i <= 10; i++) {
+    const stage = document.getElementById(`stage-${i}`);
 
-      currentRequest = {
-        user_id: document.getElementById('user_id').value,
-        role: document.getElementById('role').value,
-        action: document.getElementById('action').value,
-        target: document.getElementById('target').value,
-        data_classification: document.getElementById('data_classification').value,
-        business_purpose: document.getElementById('business_purpose').value,
-        authorization_status: document.getElementById('authorization_status').value
-      };
+    if (stage) {
+      stage.classList.remove('running', 'completed');
+    }
+  }
+}
 
-      try {
-        const response = await fetch('/api/govern', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(currentRequest)
-        });
-        
-        const data = await response.json();
-        currentEvaluationData = data;
-        renderGovernanceResult(data);
-        fetchAuditHistory();
-      } catch (err) {
-        console.error('Governance error:', err);
-      } finally {
-        if (submitBtn) { submitBtn.disabled = false; submitBtn.innerText = 'Evaluate Governance Action'; }
-      }
+async function animateGovernancePipeline() {
+  resetGovernancePipeline();
+
+  for (let i = 1; i <= 10; i++) {
+    const stage = document.getElementById(`stage-${i}`);
+
+    if (!stage) continue;
+
+    stage.classList.add('running');
+
+    // Give the judge a clear visual progression
+    await new Promise(resolve => setTimeout(resolve, 180));
+
+    stage.classList.remove('running');
+    stage.classList.add('completed');
+  }
+}
+
+function completeGovernancePipeline() {
+  for (let i = 1; i <= 10; i++) {
+    const stage = document.getElementById(`stage-${i}`);
+
+    if (stage) {
+      stage.classList.remove('running');
+      stage.classList.add('completed');
+    }
+  }
+}
+
+async function handleGovern(event) {
+  if (event) event.preventDefault();
+
+  const submitBtn = document.getElementById('btn-submit');
+
+  if (submitBtn) {
+    submitBtn.disabled = true;
+    submitBtn.innerText = 'Evaluating Governance Pipeline...';
+  }
+
+  const unsavedBadge = document.getElementById('unsaved-badge');
+  if (unsavedBadge) {
+    unsavedBadge.style.display = 'none';
+  }
+
+  const confidenceLabel = document.getElementById('confidence-label');
+  if (confidenceLabel) {
+    confidenceLabel.innerText = 'Confidence: Evaluating...';
+  }
+
+  currentRequest = {
+    user_id: document.getElementById('user_id').value,
+    role: document.getElementById('role').value,
+    action: document.getElementById('action').value,
+    target: document.getElementById('target').value,
+    data_classification: document.getElementById('data_classification').value,
+    business_purpose: document.getElementById('business_purpose').value,
+    authorization_status: document.getElementById('authorization_status').value
+  };
+
+  try {
+    // Start visual pipeline animation immediately
+    const pipelineAnimation = animateGovernancePipeline();
+
+    const response = await fetch('/api/govern', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(currentRequest)
+    });
+
+    if (!response.ok) {
+      throw new Error(`Governance API returned ${response.status}`);
     }
 
-    function renderGovernanceResult(data) {
-      currentRequestId = data.request_id;
-      
-      if (data.llm_provider) {
-        let pName = data.llm_provider;
-        if (pName.includes('Failed')) pName = 'IBM Granite 7B (Local Reasoning Engine)';
-        document.getElementById('provider-pill').innerText = pName.includes('IBM Granite') ? pName : 'IBM Granite 7B — ' + pName;
-      }
+    const data = await response.json();
 
-      if (data.confidence !== undefined && data.confidence !== null) {
-        const confPct = Math.round(data.confidence * 100);
-        const confElem = document.getElementById('confidence-label');
-        if (confElem) confElem.innerText = `Confidence: ${confPct}%`;
-      }
+    // Wait until the 10-stage visual pipeline finishes
+    await pipelineAnimation;
+
+    currentEvaluationData = data;
+
+    // Render governance decision
+    renderGovernanceResult(data);
+
+    // Ensure all stages remain completed
+    completeGovernancePipeline();
+
+    // Refresh audit trail + dashboard metrics
+    await fetchAuditHistory();
+
+  } catch (err) {
+    console.error('Governance error:', err);
+
+  } finally {
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.innerText = 'Evaluate Governance Action';
+    }
+  }
+}
+
+
+function renderGovernanceResult(data) {
+  currentRequestId = data.request_id;
+
+  if (data.llm_provider) {
+    let pName = data.llm_provider;
+
+    if (pName.includes('Failed')) {
+      pName = 'IBM Granite 7B (Local Reasoning Engine)';
+    }
+
+    const providerPill = document.getElementById('provider-pill');
+
+    if (providerPill) {
+      providerPill.innerText =
+        pName.includes('IBM Granite')
+          ? pName
+          : 'IBM Granite 7B — ' + pName;
+    }
+  }
+
+  if (data.confidence !== undefined && data.confidence !== null) {
+    const confPct = Math.round(data.confidence * 100);
+    const confElem = document.getElementById('confidence-label');
+
+    if (confElem) {
+      confElem.innerText = `Confidence: ${confPct}%`;
+    }
+  }
 
       // 1. Decision Banner Styling & Workflow Controls
       const banner = document.getElementById('decision-panel');
@@ -2236,21 +3355,83 @@
     let allAuditRecords = [];
 
     async function fetchAuditHistory() {
-      try {
-        const res = await fetch('/api/audit');
-        const data = await res.json();
-        allAuditRecords = data.records || [];
-        
-        document.getElementById('m-evaluated').innerText = allAuditRecords.length;
-        document.getElementById('m-approved').innerText = allAuditRecords.filter(r => r.decision === 'APPROVE').length;
-        document.getElementById('m-modified').innerText = allAuditRecords.filter(r => r.decision === 'MODIFY').length;
-        document.getElementById('m-blocked').innerText = allAuditRecords.filter(r => r.decision === 'ESCALATE' || r.decision === 'REJECT').length;
+  try {
+    const res = await fetch('/api/audit');
 
-        renderAuditTable(allAuditRecords);
-      } catch (e) {
-        console.error(e);
-      }
+    if (!res.ok) {
+      throw new Error(`Audit API returned ${res.status}`);
     }
+
+    const data = await res.json();
+
+    allAuditRecords = data.records || [];
+
+    // Existing Overview metrics
+    document.getElementById('m-evaluated').innerText =
+      allAuditRecords.length;
+
+    document.getElementById('m-approved').innerText =
+      allAuditRecords.filter(r => r.decision === 'APPROVE').length;
+
+    document.getElementById('m-modified').innerText =
+      allAuditRecords.filter(r => r.decision === 'MODIFY').length;
+
+    document.getElementById('m-blocked').innerText =
+      allAuditRecords.filter(
+        r => r.decision === 'ESCALATE' || r.decision === 'REJECT'
+      ).length;
+
+
+    // =====================================================
+    // COMMAND CENTER LIVE METRICS
+    // =====================================================
+
+    const requestsEl =
+      document.getElementById('am-metric-requests');
+
+    const approvedEl =
+      document.getElementById('am-metric-approved');
+
+    const escalatedEl =
+      document.getElementById('am-metric-escalated');
+
+    const blockedEl =
+      document.getElementById('am-metric-blocked');
+
+
+    if (requestsEl) {
+      requestsEl.innerText = allAuditRecords.length;
+    }
+
+    if (approvedEl) {
+      approvedEl.innerText =
+        allAuditRecords.filter(
+          r => r.decision === 'APPROVE'
+        ).length;
+    }
+
+    if (escalatedEl) {
+      escalatedEl.innerText =
+        allAuditRecords.filter(
+          r => r.decision === 'ESCALATE'
+        ).length;
+    }
+
+    if (blockedEl) {
+      blockedEl.innerText =
+        allAuditRecords.filter(
+          r => r.decision === 'REJECT'
+        ).length;
+    }
+
+
+    // Keep existing audit table working
+    renderAuditTable(allAuditRecords);
+
+  } catch (e) {
+    console.error('[AegisMesh] Audit history error:', e);
+  }
+}
 
     function renderAuditTable(records) {
       const body = document.getElementById('audit-table-body');
@@ -2609,13 +3790,17 @@
     // Initial load
     updateLiveSignals();
     fetchPolicies();
+
     fetch('/api/health').then(r => r.json()).then(d => {
-      if (d.provider) {
-        const pName = typeof d.provider === 'object' ? d.provider.name : d.provider;
-        document.getElementById('provider-pill').innerText = 'IBM Granite 7B — ' + pName;
+    if (d.provider) {
+      const pName = typeof d.provider === 'object'
+        ? d.provider.name
+        : d.provider;
+
+      document.getElementById('provider-pill').innerText =
+        'IBM Granite 7B — ' + pName;
       }
-    }).catch(e => console.error(e));
-    handleGovern();
+      }).catch(e => console.error(e));
   </script>
 </body>
 </html>

@@ -17,7 +17,11 @@ async def health_check():
         provider_data = {
             "name": provider_inst.get_provider_name(),
             "type": "huggingface" if isinstance(provider_inst, HuggingFaceProvider) else "mock",
-            "configured": provider_inst.is_configured()
+            "configured": (
+                provider_inst.is_configured()
+                if hasattr(provider_inst, "is_configured")
+                else True
+                )
         }
 
     return HealthResponse(
